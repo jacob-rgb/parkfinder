@@ -1,0 +1,36 @@
+<app-navbar (logclick)="bole = !bole"></app-navbar>
+<app-header></app-header>
+<section class="container-fluid mb-5">
+    <div class="container mt-5">
+      <div class="row text-secondary">
+        <app-sidebar [resbol]="bole" class="col-lg-2"></app-sidebar>
+         <div class="col-lg-10">
+            <h2 class="text-dark mb-3">Find Your Place <span class="small">-Contact</span></h2>
+            <form class="form" action="contact.html">
+              <div class="row">
+                  <div class="col-6">
+                   <label for="name">Name:</label><br>
+                   <input class="form-control" type="text" name="name" id="name" placeholder="Enter your name" required>
+                  </div>
+                  <div class="col-6">
+                    <label for="name">Surname:</label><br>
+                    <input class="form-control" type="text" name="surname" id="surname" placeholder="Enter your surname"required>
+                   </div>
+              </div>
+              <div class="mt-2">
+                <label for="email">Email Adress:</label>
+                <input class="form-control" type="email" name="email" id="email" placeholder="Enter e-mail" required>
+              </div>
+              <div class="mt-2">
+                  <label for="Message">Message:</label><br>
+                  <textarea class="form-control" name="message" id="message" cols="30" rows="5" placeholder="Explain your case in a few words" required></textarea>
+              </div>
+              <div class="mt-2">
+                  <input class="btn btn-primary form-control" type="submit" value="Send">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+<app-footer></app-footer>

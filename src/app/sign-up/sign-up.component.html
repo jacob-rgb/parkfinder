@@ -1,0 +1,170 @@
+<div id="body" class="py-4">
+    <div class="container-fluid">
+    <div id="cuerpo" class="container">
+      <div class="row justify-content-center p-3 container">
+        <h1 class="bg-primary text-light rounded px-3">Find Your Place</h1>
+      </div>
+      <div class="row justify-content-center mb-3 container">
+        <h2 class="text-light">Register</h2>
+      </div>
+      <div class="row justify-content-center">
+        <form action="sign-up.html" class="text-light container">
+         <div class="row mb-3">
+           <div class="col-3 mr-5 pl-5">
+             <label for="name">Name</label>
+           </div>
+           <div class="col-7">
+             <input type="text" name="name" id="name" class="form-control" placeholder="Write your Name">
+           </div>
+         </div>
+         <div class="row mb-3">
+          <div class="col-3 mr-5 pl-5">
+            <label for="name">Surname</label>
+          </div>
+          <div class="col-7">
+            <input type="text" name="surname" id="surname" class="form-control" placeholder="Write you Surname">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-3 mr-5 pl-5">
+            <label for="email">E-mail</label>
+          </div>
+          <div class="col-7">
+            <input type="email" name="email" id="email" class="form-control" placeholder="example@gmail.com">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-3 mr-5 pl-5">
+            <label for="password">Password</label>
+          </div>
+          <div class="col-6">
+            <input type="password" name="inputpassword" id="inputpassword" class="form-control" placeholder="Min 6 characters" [(ngModel)]="password1">
+          </div>
+          <div class="col-1" id="passwordcontrol">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-3 mr-5 pl-5">
+          </div>
+          <div class="col-6">
+            <div id="barrabox" class="progress" [hidden]= "password1.length === 0">
+              <div id="barra" class="progress-bar bg-danger" style="width: 34%;" *ngIf="password1.length > 2">
+                Not safe
+              </div>
+              <div id="barra2" class="progress-bar bg-warning" style="width: 34%;" *ngIf="password1.length > 5">
+                Middle-safe
+              </div>
+              <div id="barra3" class="progress-bar bg-success" style="width: 33%;" *ngIf="password1.length > 8">
+                Safe
+              </div>
+            </div>
+          </div>
+          <div class="col-1" ></div>
+          </div>
+        <div class="row mb-3">
+          <div class="col-3 mr-5 pl-5">
+            <label id="passwordconf" for="confirmpassword">Confirm your password</label>
+          </div>
+          <div class="col-6">
+            <input type="password" name="inputpassword2" id="inputpassword2" class="form-control" placeholder="Min 6 characters" [(ngModel)]="password2">
+          </div>
+          <div class="col-1">
+            <p *ngIf="password1 != password2 && password2.length != 0">Passwords do not match</p>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-3 mr-5 pl-5">
+            <label for="dni">DNI</label>
+          </div>
+          <div class="col-6">
+            <input type="text" name="dni" id="dni" class="form-control" placeholder="Introduce you DNI" >
+          </div>
+          <div id="letradni" class="col-1 pt-2"></div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-3 mr-5 pl-5">
+            <label for="bdate">Birth Date</label>
+          </div>
+          <div class="col-6">
+            <input type="date" name="bdate" id="bdate" class="form-control">
+          </div>
+          <div id="edad" class="col-1 pt-2"></div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-3 mr-5 pl-5">
+            <label for="carplate">Car plate</label>
+          </div>
+          <div class="col-6">
+            <input type="text" name="carplate" id="carplate" class="form-control" placeholder="6774-FXS">
+          </div>
+          <div class="col-1 pt-2"></div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-3 mr-5 pl-5">
+            <label for="Environment Class">Environment Class </label>
+          </div>
+          <div class="col-6">
+            <select class="form-control" name="contamination" id="contamination" [(ngModel)]= "contam">
+              <option value="40">-- Select --</option>
+              <option value= "0">Eco</option>
+              <option value="1">0</option>
+              <option value="2">B</option>
+              <option value="3">C</option>
+            </select>
+          </div>
+          <div  class="col-1 pt-2" id="descuentoCont" [ngSwitch]="contam">
+            <div *ngSwitchCase= "40">
+              
+            </div>
+            <div *ngSwitchCase= "0">
+              <p>5% Disscount</p>
+            </div>
+            <div *ngSwitchCase= "1">
+              <p>10% Disscount</p>
+            </div>
+            <div *ngSwitchCase= "2">
+              <p>No Disscount</p>
+            </div>
+            <div *ngSwitchCase= "3">
+              <p>No Disscount</p>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-3 mr-5 pl-5">
+           
+          </div>
+          <div class="col-7 ">
+            <a href="#desplegable" data-toggle="collapse">Prices</a>
+            <div id="desplegable" class="collapse" >
+              <table class="table table-sm bg-light">
+                <thead>
+                  <th>Disscount</th>
+                  <th>Price</th>
+                </thead>
+                <tbody id="tbody">
+                  <tr *ngFor="let item of tabPrecios">
+                    <td>{{item.descu}}%</td>
+                    <td>{{item.precio}} Eur</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+           </div>
+          </div>
+        <div class="row mb-3">
+          <div class="col-3 mr-5 pl-5">
+           
+          </div>
+          <div class="col-7 ">
+            <input id="botonsign" type="submit" value="Submit" class="btn btn-primary">
+          </div>
+          </div>
+        </form>
+      </div>
+      <div class="text-center">
+        <a href="home.html">Go back to homepage</a>
+      </div>
+    </div>
+</div>
+ 

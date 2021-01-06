@@ -1,0 +1,23 @@
+<app-navbar (logclick) = "bole = !bole"></app-navbar>
+<app-header></app-header>
+<section class="container-fluid mb-5">
+    <div class="container mt-5">
+      <div class="row text-secondary">
+        <app-sidebar [resbol]="bole" class="col-lg-2"></app-sidebar>
+        <div class="col-lg-10">
+            <div>
+                <h2 class="text-dark mb-3">Find Your Place <span class="small">-coupons</span></h2>
+                <div class="card-columns" id="columna_cards">
+                  <div class="tab-content py-2">
+                    <app-coupon *ngFor="let item of thecoupons" [textInput] = item.parrafocontent [imgInput] = item.imgsource [modalInput]="item.modal"></app-coupon>
+                  </div>
+                  <!-- modals -->
+                  <app-modals></app-modals>
+                      
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    </section>
+<app-footer></app-footer>

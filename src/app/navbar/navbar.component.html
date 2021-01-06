@@ -1,0 +1,15 @@
+
+<nav class="navbar navbar-expand-sm bg-secondary justify-content-between fixed-top">
+    <div>
+      <a  class="navbar-brand float-left" href="home.html"><img height="30" width="30" src="../assets/img/logo navbar.png" alt="logo.navbar"></a>
+      <h2 class="text-light float-left">Find Your Place</h2>
+    </div>
+    <div id="enlaces-logout" [class.d-none]="log">
+      <a id="enlace-profile" class="btn btn-outline-light float-left">Jacobo Ramírez</a>
+      <a class="btn btn-outline-light float-left ml-3" id="logout" (click) =logg(log)>Log-out</a>
+  </div>
+    <div id="formnav" [class.d-none]="log === false">
+      <a class="btn btn-outline-light float-left" (click) =logg(log)>Log-in</a>
+      <a class="btn btn-outline-light float-left ml-3">Sign Up</a>
+  </div>
+   </nav>
